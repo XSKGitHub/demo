@@ -4,7 +4,7 @@
  * @Autor: x-one
  * @Date: 2020-11-23 14:14:26
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-23 14:18:16
+ * @LastEditTime: 2020-11-23 17:04:12
 -->
 
 # 一、CentoOS 7 日期时间设置
@@ -44,3 +44,32 @@
     hwclock --hctosys
     # 强制把系统时间写入CMOS：
     # clock -w
+
+# 二、CentOS 7 防火墙管理
+
+## 2.1 防火墙开放端口
+
+### 查看以开放端口
+
+> sudo firewall-cmd --list-ports
+
+### 开放端口 / 关闭端口
+
+> sudo firewall-cmd --zone=public --add-port=9200/tcp --permanent  
+> sudo firewall-cmd --zone=public --remove-port=9200/tcp --permanent
+
+### 重启防火墙
+
+> sudo firewall-cmd --reload
+
+### 开启/停止防火墙
+
+> sudo systemctl start firewalld  
+> systemctl stop firewalld
+
+### 开机启动/禁止防火墙
+
+> sudo systemctl enable firewalld  
+> sudo systemctl disable firewalld
+
+## 2.2 防火墙关闭
