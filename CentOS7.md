@@ -4,7 +4,7 @@
  * @Autor: x-one
  * @Date: 2020-11-23 14:14:26
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-23 17:04:12
+ * @LastEditTime: 2020-11-24 15:58:57
 -->
 
 # 一、CentoOS 7 日期时间设置
@@ -73,3 +73,8 @@
 > sudo systemctl disable firewalld
 
 ## 2.2 防火墙关闭
+
+# 三. 常用命令
+
+## ps aux
+
