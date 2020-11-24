@@ -4,7 +4,7 @@
  * @Autor: x-one
  * @Date: 2020-11-23 15:13:55
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-24 15:24:58
+ * @LastEditTime: 2020-11-24 17:32:33
 -->
 
 # ELK 使用手册
@@ -39,3 +39,7 @@
 > sudo systemctl start elasticsearch.service
 
 ## 二. Kibana
+
+### 下载 安装
+
+> wget https://artifacts.elastic.co/downloads/kibana/kibana-7.9.3-linux-x86_64.tar.gz
