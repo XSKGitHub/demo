@@ -4,19 +4,28 @@
  * @Autor: x-one
  * @Date: 2020-11-23 14:14:26
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-24 15:58:57
+ * @LastEditTime: 2020-11-26 10:11:37
 -->
 
 # 一、CentoOS 7 日期时间设置
 
 ## 1.1 设置系统时间为中国时区并启用NTP同步
 
-    yum install ntp // 安装ntp服务
-    systemctl enable ntpd // 开机启动服务
-    systemctl start ntpd // 启动服务
-    timedatectl set-timezone Asia/Shanghai // 更改时区
-    timedatectl set-ntp yes // 启用ntp同步
-    ntpq -p // 同步时间
+1. 安装ntp服务
+    >yum install -y ntp
+
+2. 开机启动服务
+    >systemctl enable ntpd
+
+3. 启动服务
+    >systemctl start ntpd
+
+4. 更改时区
+    >timedatectl set-timezone Asia/Shanghai
+5. 启用ntp同步
+    >timedatectl set-ntp yes
+6. 同步时间
+    >ntpq -p
 
 ## 1.2 timedatectl 命令
 
@@ -77,4 +86,3 @@
 # 三. 常用命令
 
 ## ps aux
-
