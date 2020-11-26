@@ -4,12 +4,12 @@
  * @Autor: x-one
  * @Date: 2020-11-23 15:13:55
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-24 17:32:33
+ * @LastEditTime: 2020-11-25 15:50:13
 -->
 
 # ELK 使用手册
 
-## 一. Elastic Search
+## 一、Elastic Search
 
 ### Elastic Search 配置开机自启动
 
@@ -38,8 +38,18 @@
 > #启动elasticsearch  
 > sudo systemctl start elasticsearch.service
 
-## 二. Kibana
+## 二、 Kibana
 
 ### 下载 安装
 
-> wget https://artifacts.elastic.co/downloads/kibana/kibana-7.9.3-linux-x86_64.tar.gz
+``` python
+wget https://artifacts.elastic.co/downloads/kibana/kibana-7.9.3-linux-x86_64.tar.gz
+```
+
+## 三、Logstash
+
+## 四、Beats
+
+## 二、APM Server
+
+## 四、Elastic Search Hadoop
