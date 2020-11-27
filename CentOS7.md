@@ -4,7 +4,7 @@
  * @Autor: x-one
  * @Date: 2020-11-23 14:14:26
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-26 10:11:37
+ * @LastEditTime: 2020-11-27 09:50:08
 -->
 
 # 一、CentoOS 7 日期时间设置
@@ -58,7 +58,7 @@
 
 ## 2.1 防火墙开放端口
 
-### 查看以开放端口
+### 查看已开放端口
 
 > sudo firewall-cmd --list-ports
 
@@ -83,6 +83,11 @@
 
 ## 2.2 防火墙关闭
 
-# 三. 常用命令
+# 三、文件权限管理
+
+授予全部权限
+>chmod -R 777 dirPath
+
+# 四、 常用命令
 
 ## ps aux

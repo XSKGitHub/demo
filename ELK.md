@@ -4,41 +4,60 @@
  * @Autor: x-one
  * @Date: 2020-11-23 15:13:55
  * @LastEditors: x-one
- * @LastEditTime: 2020-11-25 15:50:13
+ * @LastEditTime: 2020-11-26 17:05:46
 -->
 
 # ELK 使用手册
 
-## 一、Elastic Search
+## 一、环境准备
+
+### 修改系统配置
+
+1. 修改进程最大打开文件数
+    > vim /etc/security/limits.conf  
+    > `#` 增加下面配置  
+    > `*` soft nofile 65536  
+    > `*` hard nofile 65536
+2. 修改最大线程个数
+    > vim /etc/security/limits.conf  
+    > `#` 增加下面配置  
+    > `*` soft nproc 4096  
+    > `*` hard nproc 4096
+3. 修改虚拟内存
+    > vim /etc/sysctl.conf  
+    > `#` 修改配置  
+    > vm.max_map_count=262144  
+    > `#` 修改生效  
+    > sysctl -p
+
+### 1.1 ContOS 7
+
+## 二、Elastic Search
 
 ### Elastic Search 配置开机自启动
 
-#### 创建文件
+1. 创建文件
+    > sudo vim /etc/systemd/system/elasticsearch.service
+2. 添加如下内容
+    > [Unit]  
+    > Description=elasticsearch  
+    > [Service]  
+    > User=es  
+    > LimitNOFILE=100000  
+    > LimitNPROC=100000  
+    > ExecStart=serviceName  
+    > [Install]  
+    > WantedBy=multi-user.target
+3. 设置开机自启
+    > sudo systemctl daemon-reload  
+    > #设置启动服务  
+    > sudo systemctl enable elasticsearch.service  
+    > #启动elasticsearch  
+    > sudo systemctl start elasticsearch.service
+4. 注意如果第一次配置失败需要执行一次下面命令
+    > systemctl disable （服务名）
 
-> vim /etc/systemd/system/elasticsearch.service
-
-#### 添加如下内容
-
-> [Unit]  
-> Description=elasticsearch  
-> [Service]  
-> User=es  
-> LimitNOFILE=100000  
-> LimitNPROC=100000  
-> `#`elasticsearch安装路径 （指定自己的安装路径
-> ExecStart=/home/es/elasticsearch-7.9.3/bin/elasticsearch
-> [Install]
-> WantedBy=multi-user.target
-
-#### 设置开机自启
-
-> sudo systemctl daemon-reload  
-> #设置启动服务  
-> sudo systemctl enable elasticsearch.service  
-> #启动elasticsearch  
-> sudo systemctl start elasticsearch.service
-
-## 二、 Kibana
+## 三、 Kibana
 
 ### 下载 安装
 
@@ -46,10 +65,10 @@
 wget https://artifacts.elastic.co/downloads/kibana/kibana-7.9.3-linux-x86_64.tar.gz
 ```
 
-## 三、Logstash
+## 四、Logstash
 
-## 四、Beats
+## 五、Beats
 
-## 二、APM Server
+## 六、APM Server
 
-## 四、Elastic Search Hadoop
+## 七、Elastic Search Hadoop
